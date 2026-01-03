@@ -34,7 +34,6 @@
 > โค้ดหลักเป็นไฟล์เดียว แต่มีรูปประกอบและไฟล์ config เพิ่มเติม
 
 ตัวอย่างโครงสร้าง:
-
 restaurant-booking/
 ├─ codeweb.php
 ├─ vibe.png
@@ -45,7 +44,6 @@ restaurant-booking/
 ├─ .env.example
 └─ README.md
 
----
 
 ## การติดตั้งและรันบนเครื่อง (Local)
 
