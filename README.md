@@ -43,7 +43,7 @@ restaurant-booking/
 ├─ oysters.png
 ├─ .gitignore
 ├─ .env.example
-├─ README.md
+└─ README.md
 
 ---
 
