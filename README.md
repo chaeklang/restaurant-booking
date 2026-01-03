@@ -89,17 +89,19 @@ Validation ฝั่ง Server และ Client
 ภาพหน้าจอ (Screenshots)
 แนะนำให้ใส่รูปไว้ในโฟลเดอร์ screenshots/ แล้วอ้างอิงแบบ path (รูปจะไม่พัง)
 
-หน้าเว็บ
-<img width="1903" height="1030" alt="home" src="https://github.com/user-attachments/assets/ab118def-b6ec-48ee-88c8-cffa495f7f2e" />
+## ภาพหน้าจอ
 
-การจองโต๊ะแบบยังไม่ใส่อีเมล
-<img width="1917" height="1032" alt="booking-no-email" src="https://github.com/user-attachments/assets/be94d8b7-4537-4e30-80f7-785ebc1b3e2b" />
+### หน้าเว็บ
+![หน้าเว็บ](screenshots/home.png)
 
-การจองโต๊ะแบบใส่อีเมล
-![booking-with-email](https://github.com/user-attachments/assets/42c86085-e886-43ae-8602-cb092172856d)
+### จองโต๊ะ (ยังไม่ใส่อีเมล)
+![จองโต๊ะไม่ใส่อีเมล](screenshots/booking-no-email.png)
 
-ตรวจสอบรายชื่อการจองด้วยเบอร์โทร
-<img width="1905" height="475" alt="check-booking" src="https://github.com/user-attachments/assets/c70e0883-fa7d-467b-8d3f-4101f4be8a8c" />
+### จองโต๊ะ (ใส่อีเมล)
+![จองโต๊ะใส่อีเมล](screenshots/booking-with-email.png)
+
+### ตรวจสอบการจอง
+![ตรวจสอบการจอง](screenshots/check-booking.png)
 
 
 หมายเหตุ
