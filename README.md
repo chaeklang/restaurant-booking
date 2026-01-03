@@ -33,6 +33,7 @@
 ## โครงสร้างไฟล์แนะนำ
 > โค้ดหลักเป็นไฟล์เดียว แต่มีรูปประกอบและไฟล์ config เพิ่มเติม
 
+```text
 restaurant-booking/
 ├─ codeweb.php
 ├─ vibe.png
