@@ -1,7 +1,8 @@
-# restaurant-booking
-# เว็บไซต์จองโต๊ะร้านอาหารออนไลน์ (PHP + MySQL)
+# Restaurant Booking — เว็บไซต์จองโต๊ะร้านอาหารออนไลน์ (PHP + MySQL)
 
-โปรเจกต์เว็บแอปจองโต๊ะร้านอาหารแบบไฟล์เดียว (Single-file) พัฒนาด้วย **PHP + MySQL** พร้อมหน้าเว็บ Responsive ด้วย **Bootstrap** และตรวจสอบข้อมูลแบบเรียลไทม์ด้วย **jQuery** รวมถึงรองรับการส่งอีเมลยืนยันผ่าน **PHPMailer (Gmail SMTP)**
+โปรเจกต์เว็บแอปจองโต๊ะร้านอาหารแบบ **Single-file** พัฒนาด้วย **PHP + MySQL (PDO)**  
+หน้าเว็บรองรับทุกอุปกรณ์ด้วย **Bootstrap 5** และตรวจสอบข้อมูลแบบเรียลไทม์ด้วย **jQuery**  
+รองรับการส่งอีเมลยืนยันผ่าน **PHPMailer (Gmail SMTP)** *(ไม่บังคับ)*
 
 **ผู้พัฒนา:** เบญญาภา แช่กลาง
 
@@ -22,11 +23,11 @@
 
 ## เทคโนโลยีที่ใช้
 - PHP (PDO)
-- MySQL
-- HTML/CSS
+- MySQL / MariaDB
+- HTML / CSS
 - JavaScript + jQuery
 - Bootstrap 5
-- PHPMailer (ส่งเมลผ่าน Gmail SMTP)
+- PHPMailer (Gmail SMTP)
 
 ---
 
@@ -42,64 +43,40 @@ restaurant-booking/
 ├─ oysters.png
 ├─ .gitignore
 ├─ .env.example
+├─ composer.json
+├─ composer.lock
+├─ screenshots/
+│  ├─ home.png
+│  ├─ booking-no-email.png
+│  ├─ booking-with-email.png
+│  └─ check-booking.png
 └─ README.md
 
+หมายเหตุ: vendor/ จะถูกสร้างหลัง composer install และควรถูก ignore ไว้ใน .gitignore
 
-## การติดตั้งและรันบนเครื่อง (Local)
-
-### 1) ติดตั้งเครื่องมือที่ต้องมี
-- PHP 8+ (แนะนำ)
-- MySQL / MariaDB (เช่น XAMPP)
-- Composer (สำหรับ PHPMailer)
-
-### 2) วางไฟล์โปรเจกต์
-- ถ้าใช้ XAMPP: วางโฟลเดอร์ไว้ที่ `C:\xampp\htdocs\restaurant-booking`
-- เข้าใช้งาน: `http://localhost/restaurant-booking/index.php`
-
-### 3) ติดตั้ง PHPMailer
-เปิด Terminal ในโฟลเดอร์โปรเจกต์ แล้วรัน:
-```bash
-composer require phpmailer/phpmailer
-
-จะได้โฟลเดอร์ vendor/ และไฟล์ vendor/autoload.php
-
-
-ตั้งค่าฐานข้อมูล (Database)
-โค้ดรองรับการสร้างฐานข้อมูล/ตารางอัตโนมัติเมื่อ APP_ENV=local
-ค่าเริ่มต้นในโค้ด:
-DB Host: 127.0.0.1
-DB User: root
-DB Pass: (ว่าง)
-DB Name: restaurant_booking_ui
-Table: bookings
-ถ้ารันแล้วฐานข้อมูลถูกสร้างแล้ว สามารถดูใน phpMyAdmin ได้ทันที
-
-
-ตั้งค่าอีเมล (SMTP) — ไม่บังคับ
-ระบบจะส่งเมลได้เมื่อมีการตั้งค่า SMTP_USER และ SMTP_PASS
-สร้างไฟล์ .env (แนะนำ)
-สร้างไฟล์ชื่อ .env แล้วใส่ค่า:
+ค่าที่ต้องมี:
 
 APP_ENV=local
 AUTO_SETUP_DB=1
-
 SMTP_USER=yourgmail@gmail.com
 SMTP_PASS=your_app_password
 
-หมายเหตุ: ถ้าใช้ Gmail แนะนำให้ใช้ App Password แทนรหัสผ่านจริง
 
-ถ้ายังไม่ตั้งค่า SMTP
-ระบบยังจองได้ปกติ แต่จะขึ้นข้อความว่า “บันทึกแล้ว (ยังไม่ตั้งค่า SMTP จึงไม่ส่งอีเมล)”
+ถ้าใช้ Gmail แนะนำให้ใช้ App Password แทนรหัสผ่านจริง
+และ ห้าม อัปโหลดไฟล์ .env ที่มีรหัสผ่านขึ้น GitHub
 
-ข้อมูลสำคัญที่ปรับได้ (ในโค้ด)
-ส่วน config['shop'] สามารถแก้:
+ถ้ายังไม่ตั้งค่า SMTP:
+ระบบยังจองได้ปกติ แต่จะแจ้งว่า “บันทึกแล้ว (ยังไม่ตั้งค่า SMTP จึงไม่ส่งอีเมล)”
+
+ค่าที่ปรับได้ในระบบ (ในโค้ด)
+แก้ได้ใน $config['shop']
 open / close เวลาเปิด-ปิดร้าน
-cutoff_today เวลาหลังจากนี้จะไม่รับจอง “ภายในวันเดียวกัน”
+cutoff_today หลังเวลานี้จะไม่รับจอง “ภายในวันเดียวกัน”
 step_min ช่วงเวลาในการเลือกจอง (เช่น 15 นาที)
 max_per_slot จำกัดจำนวนการจองต่อช่วงเวลา (0 = ไม่จำกัด)
 
 ความปลอดภัยที่มีในระบบ
-Session Hardening (secure/httponly/samesite)
+Session Hardening (secure / httponly / samesite)
 CSRF Token
 PDO Prepared Statements ป้องกัน SQL Injection
 Validation ฝั่ง Server และ Client
@@ -109,20 +86,22 @@ Validation ฝั่ง Server และ Client
 กรอกข้อมูล → กดยืนยัน
 ระบบบันทึกลง MySQL และ (ถ้าเปิด SMTP) ส่งอีเมลยืนยัน
 เข้าเมนู “ตรวจสอบการจอง” ใส่เบอร์โทร → ดูรายการจองล่าสุด
+ภาพหน้าจอ (Screenshots)
+แนะนำให้ใส่รูปไว้ในโฟลเดอร์ screenshots/ แล้วอ้างอิงแบบ path (รูปจะไม่พัง)
+
+หน้าเว็บ
+<img width="1903" height="1030" alt="home" src="https://github.com/user-attachments/assets/ab118def-b6ec-48ee-88c8-cffa495f7f2e" />
+
+การจองโต๊ะแบบยังไม่ใส่อีเมล
+<img width="1917" height="1032" alt="booking-no-email" src="https://github.com/user-attachments/assets/be94d8b7-4537-4e30-80f7-785ebc1b3e2b" />
+
+การจองโต๊ะแบบใส่อีเมล
+![booking-with-email](https://github.com/user-attachments/assets/42c86085-e886-43ae-8602-cb092172856d)
+
+ตรวจสอบรายชื่อการจองด้วยเบอร์โทร
+<img width="1905" height="475" alt="check-booking" src="https://github.com/user-attachments/assets/c70e0883-fa7d-467b-8d3f-4101f4be8a8c" />
+
 
 หมายเหตุ
 รูปเมนูที่ใช้: vibe.png, padthai.png, grilledshrimp.png, oysters.png
 ถ้าไม่มีรูป ระบบจะใช้ placeholder แทน
-
-หน้าเว็บ
-<img width="1903" height="1030" alt="home" src="https://github.com/user-attachments/assets/0f4dd787-78c7-4fc4-920f-43187b7a3fe2" />
-
-การจองโต๊ะเเบบยังไม่ใส่เมล
-<img width="1917" height="1032" alt="หน้าจองโต๊ะเเบบยังไม่ใส่gmail" src="https://github.com/user-attachments/assets/85881c3b-21a7-440d-a60d-d8672c1034c0" />
-
-การจองโต๊ะเเบบใส่เมล
-![หน้าจองโต๊ะเเบบใส่เมล](https://github.com/user-attachments/assets/34247184-0a44-4f36-95e8-b2606ad72688)
-
-ดูรายชื่อการจองด้วยเบอร์โทร
-<img width="1905" height="475" alt="ดูรายชื่อจองโต๊ะ" src="https://github.com/user-attachments/assets/fd1713fe-7f51-4953-a92e-0ef3484144ac" />
-
