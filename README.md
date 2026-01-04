@@ -49,17 +49,16 @@
 ## โครงสร้าง
 ```text
 restaurant-booking/
-├─ codeweb.php          # ไฟล์หลักของระบบ (Run ไฟล์นี้)
-├─ vibe.png             # รูปภาพประกอบ 
-├─ padthai.png          # รูปเมนูอาหาร
-├─ grilledshrimp.png    # รูปเมนูอาหาร
-├─ oysters.png          # รูปเมนูอาหาร
-├─ seafood.gitignore           # ไฟล์ระบุสิ่งที่ Git ไม่ควรเก็บ
-├─ .env.example         # ตัวอย่างไฟล์ตั้งค่า Environment
-├─ composer.json        # ไฟล์ระบุ Dependency (PHPMailer)
-├─ composer.lock
-├─ vendor/              # โฟลเดอร์ Library (ถูกสร้างหลังรัน composer install)
-└─ README.md            # คู่มือการใช้งาน
+├─ codeweb.php              # ไฟล์หลักของระบบ (รันไฟล์นี้)
+├─ vibe.png                 # รูปพื้นหลัง/hero
+├─ padthai.png              # รูปเมนู
+├─ grilledshrimp.png        # รูปเมนู
+├─ oysters.png              # รูปเมนู
+├─ .gitignore               # บอก Git ว่าไม่ต้องเก็บไฟล์อะไร (เช่น vendor/, .env)
+├─ .env.example             # ตัวอย่างค่าตั้งค่า (ห้ามใส่รหัสจริง)
+├─ composer.json            # รายการ dependency (PHPMailer) 
+├─ composer.lock            # ล็อกเวอร์ชัน dependency 
+└─ README.md                # คู่มือ
 ```
 ## 🛠️ การติดตั้ง (Installation)
 
