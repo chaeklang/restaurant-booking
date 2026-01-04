@@ -54,7 +54,7 @@ restaurant-booking/
 ├─ padthai.png          # รูปเมนูอาหาร
 ├─ grilledshrimp.png    # รูปเมนูอาหาร
 ├─ oysters.png          # รูปเมนูอาหาร
-├─ .gitignore           # ไฟล์ระบุสิ่งที่ Git ไม่ควรเก็บ
+├─ seafood.gitignore           # ไฟล์ระบุสิ่งที่ Git ไม่ควรเก็บ
 ├─ .env.example         # ตัวอย่างไฟล์ตั้งค่า Environment
 ├─ composer.json        # ไฟล์ระบุ Dependency (PHPMailer)
 ├─ composer.lock
