@@ -1,0 +1,23 @@
+# ===== Composer / PHP =====
+/vendor/
+composer.phar
+
+# ===== Env / Secrets =====
+.env
+.env.local
+
+# ===== Logs / Cache =====
+*.log
+*.tmp
+*.cache
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== VS Code =====
+.vscode/
+
+# ===== XAMPP (ถ้ามีไฟล์ log ในโปรเจกต์) =====
+php_error_log
